@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Budget Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="light">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">📊 Simple Budget Tracker</div>
+    <nav>
+      <button id="navDashboard" class="nav-btn active">🏠 Dashboard</button>
+      <button id="navProfile" class="nav-btn">👤 Profile</button>
+      <button id="logoutBtn" class="nav-btn logout">🚪 Logout</button>
+    </nav>
+    <button id="toggleTheme" class="theme-btn">🌙 Dark Mode</button>
+    <div id="welcomeUser" class="welcome">Welcome</div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Dashboard Section -->
+    <section id="dashboardSection">
+      <div class="summary">
+        <p>Total Income: <strong>£<span id="totalIncome">0.00</span></strong></p>
+        <p>Total Expense: <strong>£<span id="totalExpense">0.00</span></strong></p>
+        <p>Balance: <strong>£<span id="balance">0.00</span></strong></p>
+      </div>
+
+      <!-- Add Transaction -->
+      <section class="form-section">
+        <h2>Add Transaction</h2>
+        <form id="transactionForm">
+          <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <input type="number" id="amount" placeholder="Amount" required />
+          <input type="text" id="category" placeholder="Category" required />
+          <input type="text" id="note" placeholder="Note (optional)" />
+          <input type="date" id="date" />
+          <button type="submit" class="add-btn">Add</button>
+        </form>
+      </section>
+
+      <!-- Filters -->
+      <section class="filters">
+        <h2>Filters</h2>
+        <div class="filter-controls">
+          <input type="date" id="filterDate" />
+          <select id="filterCategory">
+            <option value="">All Categories</option>
+          </select>
+          <button id="searchBtn">🔍 Search</button>
+          <button onclick="exportCSV()">Export CSV</button>
+          <button onclick="exportPDF()">Export PDF</button>
+        </div>
+      </section>
+
+      <!-- Transaction History -->
+      <section class="transactions">
+        <h2>Transaction History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Note</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionList"></tbody>
+        </table>
+      </section>
+
+      <!-- Charts -->
+      <section class="charts">
+        <h2>Income vs Expense Chart</h2>
+        <canvas id="chartCanvas"></canvas>
+
+        <h2>Monthly Summary Chart</h2>
+        <canvas id="monthlyChart"></canvas>
+
+        <h2>Category-wise Expense Chart</h2>
+        <canvas id="categoryChart"></canvas>
+      </section>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profileSection" class="hidden">
+      <h2>User Profile</h2>
+      <p>This section will have your personal profile details and preferences soon!</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

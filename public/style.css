@@ -1,0 +1,226 @@
+:root {
+  --bg: #f5f5f5;
+  --text: #111;
+  --card: #fff;
+  --button: #4CAF50;
+  --sidebar: #fff;
+  --accent: #2ecc71;
+  --logout: #e74c3c;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --card: #1e1e1e;
+  --button: #00b894;
+  --sidebar: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: var(--sidebar);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  position: fixed;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+  background: var(--button);
+  color: white;
+}
+
+.logout {
+  background: var(--logout);
+  color: white;
+}
+
+.theme-btn {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: var(--button);
+  color: white;
+  cursor: pointer;
+}
+
+.welcome {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 260px;
+  padding: 20px;
+  flex-grow: 1;
+  background: var(--bg);
+}
+
+section {
+  background: var(--card);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.summary p {
+  font-size: 1.1rem;
+  margin: 6px 0;
+}
+
+.form-section h2,
+.filters h2,
+.transactions h2,
+.charts h2 {
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.add-btn {
+  background: var(--button);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  opacity: 0.95;
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.filter-controls button {
+  background: var(--button);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-controls button:hover {
+  opacity: 0.9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #ddd;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+canvas {
+  max-width: 700px;
+  margin: 20px auto;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+    padding: 10px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+
+  form {
+    gap: 6px;
+  }
+
+  .nav-btn {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
